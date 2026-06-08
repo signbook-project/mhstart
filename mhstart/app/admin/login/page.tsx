@@ -1,6 +1,6 @@
 'use client'
-import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 
 export default function AdminLoginPage() {
@@ -25,6 +25,7 @@ export default function AdminLoginPage() {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
       })
+      console.log(res)
       if (!res.ok) { toast.error('Invalid credentials'); return }
       router.push('/admin')
     } catch {

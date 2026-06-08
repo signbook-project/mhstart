@@ -1,6 +1,5 @@
-import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
-import { cookies } from 'next/headers'
+import jwt from 'jsonwebtoken'
 
 const JWT_SECRET = process.env.JWT_SECRET || 'change_this_secret'
 const COOKIE_NAME = 'mhstart_admin_token'
