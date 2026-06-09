@@ -34,4 +34,4 @@ export const supabaseAdmin =
       })
     : supabase
 
-console.log('✅ Supabase initialized')
+// console.log('✅ Supabase initialized')
