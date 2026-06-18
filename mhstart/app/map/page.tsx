@@ -1,4 +1,5 @@
 "use client";
+import Footer from "@/components/public/Footer";
 import Navbar from "@/components/public/Navbar";
 import { supabase } from "@/lib/supabase";
 import dynamic from "next/dynamic";
@@ -136,7 +137,7 @@ export default function MapPage() {
                 onClick={() => toggleType(type)}
                 style={{
                   padding: "6px 12px",
-                  borderRadius: 20,
+                  // borderRadius: 20,
                   border: "none",
                   cursor: "pointer",
                   fontSize: 12,
@@ -339,6 +340,7 @@ export default function MapPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
