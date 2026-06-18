@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -92,7 +92,7 @@ export default function Navbar() {
                   padding: "8px 16px",
                   borderRadius: 8,
                   textDecoration: "none",
-                  fontSize: 18,
+                  fontSize: 15,
                   fontWeight: 600,
                   color: pathname === link.href ? "var(--skyblue)" : "#6b7280",
                   background:
