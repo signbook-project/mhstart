@@ -1,4 +1,5 @@
 'use client'
+import BulkUploadModal from '@/components/admin/BulkUploadModal'
 import { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 
@@ -15,6 +16,7 @@ export default function AdminPeoplePage() {
   const [loading, setLoading] = useState(true)
   const [editing, setEditing] = useState<any>(null)
   const [showForm, setShowForm] = useState(false)
+  const [showBulkUpload, setShowBulkUpload] = useState(false)
   const [filterCat, setFilterCat] = useState('all')
 
   const load = () => {
@@ -44,7 +46,10 @@ export default function AdminPeoplePage() {
           <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 26, color: 'var(--navy)' }}>People</h1>
           <p style={{ color: 'var(--text-secondary)', fontSize: 14, marginTop: 2 }}>Manage team, advisors, founding members and partners</p>
         </div>
-        <button className="btn btn-primary" onClick={() => { setEditing(null); setShowForm(true) }}>+ Add Person</button>
+        <div style={{ display: 'flex', gap: 10 }}>
+          <button className="btn btn-outline" onClick={() => setShowBulkUpload(true)}>📤 Bulk Upload</button>
+          <button className="btn btn-primary" onClick={() => { setEditing(null); setShowForm(true) }}>+ Add Person</button>
+        </div>
       </div>
 
       {/* Category filters */}
@@ -102,6 +107,15 @@ export default function AdminPeoplePage() {
       )}
 
       {showForm && <PersonFormModal person={editing} onClose={() => setShowForm(false)} onSave={() => { setShowForm(false); load() }} />}
+      {showBulkUpload && (
+        <BulkUploadModal
+          title="Bulk Upload People"
+          templateUrl="/templates/people-bulk-upload-template.xlsx"
+          uploadUrl="/api/admin/people/bulk-upload"
+          onClose={() => setShowBulkUpload(false)}
+          onComplete={load}
+        />
+      )}
     </div>
   )
 }

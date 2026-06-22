@@ -1,4 +1,5 @@
 'use client'
+import BulkUploadModal from '@/components/admin/BulkUploadModal'
 import { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 
@@ -10,6 +11,7 @@ export default function AdminNewsPage() {
   const [loading, setLoading] = useState(true)
   const [editing, setEditing] = useState<any>(null)
   const [showForm, setShowForm] = useState(false)
+  const [showBulkUpload, setShowBulkUpload] = useState(false)
 
   const load = () => {
     setLoading(true)
@@ -44,7 +46,10 @@ export default function AdminNewsPage() {
           <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 26, color: 'var(--navy)' }}>News Articles</h1>
           <p style={{ color: 'var(--text-secondary)', fontSize: 14, marginTop: 2 }}>Manage news, reviews, and publications</p>
         </div>
-        <button className="btn btn-primary" onClick={() => { setEditing(null); setShowForm(true) }}>+ Add Article</button>
+        <div style={{ display: 'flex', gap: 10 }}>
+          <button className="btn btn-outline" onClick={() => setShowBulkUpload(true)}>📤 Bulk Upload</button>
+          <button className="btn btn-primary" onClick={() => { setEditing(null); setShowForm(true) }}>+ Add Article</button>
+        </div>
       </div>
 
       {/* Filters */}
@@ -115,6 +120,15 @@ export default function AdminNewsPage() {
       </div>
 
       {showForm && <NewsFormModal article={editing} onClose={() => setShowForm(false)} onSave={() => { setShowForm(false); load() }} />}
+      {showBulkUpload && (
+        <BulkUploadModal
+          title="Bulk Upload News Articles"
+          templateUrl="/templates/news-bulk-upload-template.xlsx"
+          uploadUrl="/api/admin/news/bulk-upload"
+          onClose={() => setShowBulkUpload(false)}
+          onComplete={load}
+        />
+      )}
     </div>
   )
 }
