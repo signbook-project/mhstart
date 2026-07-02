@@ -2,6 +2,7 @@ import Footer from "@/components/public/Footer";
 import Navbar from "@/components/public/Navbar";
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
+import ProgramsSection from "./programs/page";
 
 async function getHomepageData() {
   const [settingsRes, newsRes, listingsRes, spotlightRes, bannersRes] =
@@ -546,6 +547,86 @@ export default async function HomePage() {
         </section>
       )}
 
+      {/* ===== ABOUT MHSTART ===== */}
+      <section style={{ padding: "80px 0", background: "white" }}>
+        <div className="container">
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1.1fr 0.9fr",
+              gap: 64,
+              alignItems: "center",
+            }}
+          >
+            <div>
+              <div className="section-eyebrow">About MHStart</div>
+              <h2 className="section-title" style={{ marginBottom: 20 }}>
+                Empowering Maharashtra&apos;s Startup Ecosystem
+              </h2>
+              <p
+                style={{
+                  color: "var(--text-secondary)",
+                  fontSize: 16,
+                  lineHeight: 1.8,
+                }}
+              >
+                {site.about ||
+                  "MHStart is a platform dedicated to empowering Maharashtra's startup ecosystem. We bring together entrepreneurs, investors, mentors, incubators, and enablers from across the state to foster innovation, collaboration, and growth."}
+              </p>
+            </div>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(3, 1fr)",
+                gap: 16,
+              }}
+            >
+              {[
+                { num: "500+", label: "Founders & Mentors" },
+                { num: "50+", label: "Incubators & Funds" },
+                { num: "200+", label: "Startups Supported" },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  style={{
+                    background: "var(--gray-50)",
+                    borderRadius: 14,
+                    padding: "24px 12px",
+                    textAlign: "center",
+                    border: "1px solid var(--gray-100)",
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: 28,
+                      fontWeight: 800,
+                      color: "var(--saffron)",
+                      fontFamily: "var(--font-display)",
+                    }}
+                  >
+                    {stat.num}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: 12,
+                      color: "var(--text-secondary)",
+                      fontWeight: 600,
+                      marginTop: 6,
+                      lineHeight: 1.4,
+                    }}
+                  >
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== OUR PROGRAMS ===== */}
+      <ProgramsSection />
+
       {/* ===== LATEST NEWS ===== */}
       <section style={{ padding: "80px 0", background: "white" }}>
         <div className="container">
@@ -560,10 +641,11 @@ export default async function HomePage() {
             <div>
               <div className="section-eyebrow">📰 Latest News</div>
               <h2 className="section-title">Ecosystem Updates</h2>
-              <p className="section-subtitle">
+              {/* <p className="section-subtitle">
                 Stay up to date with what&apos;s happening in Maharashtra&apos;s
                 startup world.
-              </p>
+              </p> */}
+              <p>Latest news and stories from Maharashtra's startup ecosystem.</p>
             </div>
             <Link href="/news" className="btn btn-outline">
               View All →
@@ -668,6 +750,9 @@ export default async function HomePage() {
           )}
         </div>
       </section>
+
+      {/* ===== MH STARTUP BUZZ ===== */}
+      {/* <BuzzPage /> */}
 
       {/* ===== MAP PREVIEW ===== */}
       <section style={{ padding: "80px 0", background: "var(--gray-50)" }}>
@@ -863,6 +948,9 @@ export default async function HomePage() {
         }
         @media (max-width: 768px) {
           section > .container > div[style*="grid-template-columns: 1fr 1fr"] {
+            grid-template-columns: 1fr !important;
+          }
+          section > .container > div[style*="grid-template-columns: 1.1fr"] {
             grid-template-columns: 1fr !important;
           }
           section > .container > div[style*="grid-template-columns: repeat(3"] {
