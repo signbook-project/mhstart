@@ -10,7 +10,10 @@ export const metadata: Metadata = {
     title: 'MHStart',
     description: "Maharashtra's Startup Ecosystem",
     type: 'website',
-  }
+  },
+   icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export const viewport = {

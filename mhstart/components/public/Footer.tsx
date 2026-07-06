@@ -186,7 +186,7 @@ export default function Footer() {
             >
               Maharashtra, India
               <br />
-              info@mhstart.com
+             build@mhstart.com
               <br />
               +91 98765 43210
             </p>

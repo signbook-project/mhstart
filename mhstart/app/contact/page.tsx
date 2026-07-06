@@ -1,7 +1,7 @@
 'use client'
-import { useState } from 'react'
-import Navbar from '@/components/public/Navbar'
 import Footer from '@/components/public/Footer'
+import Navbar from '@/components/public/Navbar'
+import { useState } from 'react'
 import toast from 'react-hot-toast'
 
 export default function ContactPage() {
@@ -43,7 +43,7 @@ export default function ContactPage() {
               <div>
                 <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 24, color: 'var(--navy)', marginBottom: 28 }}>Contact Info</h2>
                 {[
-                  { icon: '📧', label: 'Email', value: 'info@mhstart.com', href: 'mailto:info@mhstart.com' },
+                  { icon: '📧', label: 'Email', value: 'build@mhstart.com', href: 'mailto:build@mhstart.com' },
                   { icon: '📞', label: 'Phone', value: '+91 98765 43210', href: 'tel:+919876543210' },
                   { icon: '📍', label: 'Location', value: 'Maharashtra, India', href: null },
                 ].map(item => (

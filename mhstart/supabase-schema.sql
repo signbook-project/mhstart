@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS settings (
 
 -- Insert default settings
 INSERT INTO settings (key, value) VALUES
-('site', '{"name": "MHStart", "tagline": "Empowering Maharashtra Startups", "about": "MHStart is the premier platform connecting startups, incubators, investors, and enablers across Maharashtra.", "contact_email": "info@mhstart.com", "contact_phone": "+91 98765 43210", "address": "Maharashtra, India"}'),
+('site', '{"name": "MHStart", "tagline": "Empowering Maharashtra Startups", "about": "MHStart is the premier platform connecting startups, incubators, investors, and enablers across Maharashtra.", "contact_email": "build@mhstart.com", "contact_phone": "+91 98765 43210", "address": "Maharashtra, India"}'),
 ('smtp', '{"host": "smtp.gmail.com", "port": 587, "user": "", "pass": "", "from": "MHStart <noreply@mhstart.com>"}'),
 ('homepage', '{"hero_title": "Maharashtra''s Startup Ecosystem", "hero_subtitle": "Connecting startups, incubators, investors and enablers across the state", "hero_cta": "Explore Ecosystem", "hero_image": ""}')
 ON CONFLICT (key) DO NOTHING;
