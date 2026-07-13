@@ -681,7 +681,7 @@ export default async function HomePage() {
                     className="card"
                     style={{ height: "100%", cursor: "pointer" }}
                   >
-                    <div
+                    {/* <div
                       style={{
                         height: 200,
                         overflow: "hidden",
@@ -690,7 +690,18 @@ export default async function HomePage() {
                           : "linear-gradient(135deg, var(--navy), var(--navy-light))",
                         position: "relative",
                       }}
-                    >
+                    > */}
+                    <div
+  style={{
+    height: 200,
+    overflow: "hidden",
+    background: article.cover_image
+      ? `url(${article.cover_image}) center/contain no-repeat`
+      : "linear-gradient(135deg, var(--navy), var(--navy-light))",
+    backgroundColor: article.cover_image ? "var(--gray-100)" : undefined,
+    position: "relative",
+  }}
+>
                       {!article.cover_image && (
                         <div
                           style={{

@@ -1,6 +1,6 @@
 'use client'
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 export default function AdminDashboard() {
   const [stats, setStats] = useState({ news: 0, listings: 0, people: 0, contacts: 0, pendingNews: 0, pendingListings: 0 })
@@ -68,6 +68,7 @@ export default function AdminDashboard() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             {[
               { href: '/admin/news?action=new', label: '+ Add News Article', icon: '📰' },
+              { href: '/admin/news-senders?action=new', label: '+ Add News Sender', icon: '✉️' },
               { href: '/admin/listings?action=new', label: '+ Add Map Listing', icon: '📍' },
               { href: '/admin/people?action=new', label: '+ Add Person', icon: '👤' },
               { href: '/admin/homepage', label: '✏️ Edit Homepage', icon: '🏠' },

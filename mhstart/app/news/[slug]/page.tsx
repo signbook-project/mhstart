@@ -1,6 +1,6 @@
-import { supabase } from '@/lib/supabase'
-import Navbar from '@/components/public/Navbar'
 import Footer from '@/components/public/Footer'
+import Navbar from '@/components/public/Navbar'
+import { supabase } from '@/lib/supabase'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -57,7 +57,18 @@ export default async function NewsArticlePage({ params }: { params: { slug: stri
         {/* Cover Image */}
         {article.cover_image && (
           <div style={{ maxWidth: 860, margin: '-40px auto 0', padding: '0 24px' }}>
-            <img src={article.cover_image} alt={article.title} style={{ width: '100%', height: 400, objectFit: 'cover', borderRadius: 16, boxShadow: 'var(--shadow-xl)' }} />
+            <img
+              src={article.cover_image}
+              alt={article.title}
+              style={{
+                width: '100%',
+                height: 400,
+                objectFit: 'contain',
+                backgroundColor: 'var(--gray-100)',
+                borderRadius: 16,
+                boxShadow: 'var(--shadow-xl)',
+              }}
+            />
           </div>
         )}
 
@@ -101,7 +112,15 @@ export default async function NewsArticlePage({ params }: { params: { slug: stri
                 {related.map((r: any) => (
                   <Link key={r.id} href={`/news/${r.slug}`} style={{ textDecoration: 'none' }}>
                     <div className="card">
-                      <div style={{ height: 160, background: r.cover_image ? `url(${r.cover_image}) center/cover` : 'linear-gradient(135deg, var(--navy), var(--navy-light))' }} />
+                      <div
+                        style={{
+                          height: 160,
+                          background: r.cover_image
+                            ? `url(${r.cover_image}) center/contain no-repeat`
+                            : 'linear-gradient(135deg, var(--navy), var(--navy-light))',
+                          backgroundColor: r.cover_image ? 'var(--gray-100)' : undefined,
+                        }}
+                      />
                       <div style={{ padding: '16px 20px 20px' }}>
                         <p style={{ fontSize: 12, color: 'var(--gray-400)', marginBottom: 6 }}>
                           {new Date(r.published_at || r.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}
