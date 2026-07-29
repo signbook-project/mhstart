@@ -1,3 +1,6 @@
+export const runtime = 'nodejs'
+
+
 import { supabaseAdmin } from '@/lib/supabase'
 import { ImapFlow } from 'imapflow'
 import { simpleParser } from 'mailparser'
