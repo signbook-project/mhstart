@@ -4,6 +4,8 @@ import { supabaseAdmin } from '@/lib/supabase'
 
 export const dynamic = 'force-dynamic'
 
+//add new changes....
+
 export async function GET() {
 
   // Any lightweight query on a real table
