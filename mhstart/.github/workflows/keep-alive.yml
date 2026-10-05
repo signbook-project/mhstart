@@ -1,0 +1,15 @@
+name: Keep Alive
+
+on:
+  schedule:
+    - cron: "0 3 * * *"   # every day at 03:00 UTC
+  workflow_dispatch:       # lets you run it manually
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Vercel app (which queries Supabase)
+        run: |
+          curl --fail --silent --show-error --retry 3 \
+            "https://mhstart.vercel.app/api/keep-alive"
