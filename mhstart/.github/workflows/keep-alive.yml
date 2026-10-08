@@ -8,8 +8,11 @@ on:
 jobs:
   ping:
     runs-on: ubuntu-latest
-    steps:
+    steps:   #add steps to ping your Vercel app
       - name: Ping Vercel app (which queries Supabase)
         run: |
           curl --fail --silent --show-error --retry 3 \
             "https://mhstart.vercel.app/api/keep-alive"
+
+
+            

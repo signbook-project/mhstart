@@ -4,7 +4,7 @@ import { supabaseAdmin } from '@/lib/supabase'
 
 export const dynamic = 'force-dynamic'
 
-//add new changes....
+//add new changes.... for re deployed 
 
 export async function GET() {
 
